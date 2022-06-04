@@ -1,14 +1,11 @@
 import React, { useContext, useEffect } from 'react';
 import { SideBySideMagnifier } from 'react-image-magnifiers';
-import { MagnifierZoom } from 'react-image-magnifiers';
-import { MagnifierPreview } from 'react-image-magnifiers';
-import { MagnifierContainer } from 'react-image-magnifiers';
 import { productContext } from '../App';
+import './ProductGallery.css'
 
 const ProductGallery = () => {
     const productByContext = useContext(productContext);
     const { loading, error, product } = productByContext.product;
-    console.log(productByContext);
 
     return (
         <div>

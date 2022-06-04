@@ -53,10 +53,10 @@ function App() {
   }, []);
 
   // Loading 
-  if(product.loading) {
+  if (product.loading) {
     return <div style={{
-      display:'flex',
-      justifyContent:'center',
+      display: 'flex',
+      justifyContent: 'center',
       alignItems: 'center',
       width: '100wh',
       height: '100vh'
@@ -66,20 +66,33 @@ function App() {
   }
 
   return (
-    <div>
-      <productContext.Provider value={{ 
-          productDispatch: dispatch, 
-          product, 
+    <div style={{padding: '30px'}}>
+
+      <div style={{
+        backgroundColor: 'white',
+        boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
+        margin: '0 auto',
+        borderRadius: '5px',
+        maxWidth: '1200px',
+      }}>
+        <productContext.Provider value={{
+          productDispatch: dispatch,
+          product,
           hoverImgDispatch: dispatch2,
           hoverImg
-      }}>
+        }}>
 
           <div className='container'>
-            <ProductGallery />
-            <ProductDetails />
+            <div className='product-part-1'>
+              <ProductGallery />
+            </div>
+            <div className='product-part-2'>
+              <ProductDetails />
+            </div>
           </div>
 
-      </productContext.Provider>
+        </productContext.Provider>
+      </div>
 
     </div>
   );
