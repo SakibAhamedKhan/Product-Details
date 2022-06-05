@@ -9,9 +9,9 @@ const ProductGallery = () => {
 
     return (
         <div>
-            {/* <h2>This is Product Gallery Part</h2> */}
-            
-            <SideBySideMagnifier transitionSpeed={1} fillGapLeft={20} style={{ height: '400px', width: '400px' }} alwaysInPlace={true} fillAvailableSpace={false} imageSrc={
+
+            {/* Product Image Preview */}
+            <SideBySideMagnifier transitionSpeed={1} fillGapLeft={20}  className='Gallery-Preview' alwaysInPlace={true} fillAvailableSpace={false} imageSrc={
                productByContext.hoverImg.url.length > 0 ? 
                 productByContext.hoverImg.url
                :
@@ -20,7 +20,7 @@ const ProductGallery = () => {
             </SideBySideMagnifier>
 
 
-
+            {/* All Image can hover by this section and show the image in gallery */}
             <div style={{
                 display: 'flex'
             }}>

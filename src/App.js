@@ -16,9 +16,11 @@ const initialPicture = {
 }
 
 const initialCustom = {
-  colorId: '',
-  sizeId: '',
+  color: {},
+  size: {},
+  price: {},
 }
+
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -38,10 +40,20 @@ const reducer = (state, action) => {
       return {
         url: action.hoverImg
       }
-    case 'CustomSelect':
+    case 'CustomSelectColor':
       return {
-        colorId: action.colorId,
-        sizeId: action.sizeId,
+        ...state,
+        color: action.color,
+      }
+    case 'CustomSelectSize':
+      return {
+        ...state,
+        size: action.size,
+      }
+    case 'CustomSelectPrice':
+      return {
+        ...state,
+        price: action.price,
       }
     default:
       return state;
@@ -55,8 +67,8 @@ function App() {
   const [product, dispatch] = useReducer(reducer, initialState);
   const [hoverImg, dispatch2] = useReducer(reducer, initialPicture);
   const [customSelect, dispatch3] = useReducer(reducer, initialCustom);
-  console.log(hoverImg);
 
+  // fetch data by get from API
   useEffect(() => {
     fetch('/Product.json')
       .then(res => res.json())
@@ -78,33 +90,32 @@ function App() {
 
   return (
     <div style={{padding: '30px'}}>
-
       <div style={{
-        backgroundColor: 'white',
-        boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
-        margin: '0 auto',
-        borderRadius: '5px',
-        maxWidth: '1200px',
+          backgroundColor: 'white',
+          boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
+          margin: '0 auto',
+          borderRadius: '5px',
+          maxWidth: '1200px',
       }}>
-        <productContext.Provider value={{
-          productDispatch: dispatch,
-          product,
-          hoverImgDispatch: dispatch2,
-          hoverImg,
-          customSelectDispatch: dispatch3,
-          customSelect,
-        }}>
+          <productContext.Provider value={{
+              productDispatch: dispatch,
+              product,
+              hoverImgDispatch: dispatch2,
+              hoverImg,
+              customSelectDispatch: dispatch3,
+              customSelect,
+          }}>
 
-          <div className='container'>
-            <div className='product-part-1'>
-              <ProductGallery />
+            <div className='container'>
+              <div className='product-part-1'>
+                <ProductGallery />
+              </div>
+              <div className='product-part-2'>
+                <ProductDetails />
+              </div>
             </div>
-            <div className='product-part-2'>
-              <ProductDetails />
-            </div>
-          </div>
 
-        </productContext.Provider>
+          </productContext.Provider>
       </div>
 
     </div>

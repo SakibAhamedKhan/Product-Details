@@ -11,10 +11,14 @@
 .Product-Details-thumb:hover {
     border: 3px solid red;
 }
+.Product-Details-thumb-select {
+    border: 3px solid red;
+}
+
 
 .Product-Details-size{
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 }
 
 .Product-Details-size-inside{
@@ -26,4 +30,8 @@
 }
 .Product-Details-size-inside:hover{
     border: 3px solid red;
+}
+.Product-Details-size-inside-select{
+    border: 3px solid red;
+
 }
