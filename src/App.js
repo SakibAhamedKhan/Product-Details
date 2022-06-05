@@ -15,6 +15,11 @@ const initialPicture = {
   url: ''
 }
 
+const initialCustom = {
+  colorId: '',
+  sizeId: '',
+}
+
 const reducer = (state, action) => {
   switch (action.type) {
     case 'SUCCESS':
@@ -33,6 +38,11 @@ const reducer = (state, action) => {
       return {
         url: action.hoverImg
       }
+    case 'CustomSelect':
+      return {
+        colorId: action.colorId,
+        sizeId: action.sizeId,
+      }
     default:
       return state;
   }
@@ -44,6 +54,7 @@ const reducer = (state, action) => {
 function App() {
   const [product, dispatch] = useReducer(reducer, initialState);
   const [hoverImg, dispatch2] = useReducer(reducer, initialPicture);
+  const [customSelect, dispatch3] = useReducer(reducer, initialCustom);
   console.log(hoverImg);
 
   useEffect(() => {
@@ -79,7 +90,9 @@ function App() {
           productDispatch: dispatch,
           product,
           hoverImgDispatch: dispatch2,
-          hoverImg
+          hoverImg,
+          customSelectDispatch: dispatch3,
+          customSelect,
         }}>
 
           <div className='container'>

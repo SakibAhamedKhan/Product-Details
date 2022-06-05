@@ -1,3 +1,29 @@
 .Product-price-part{
     display: flex;
 }
+
+.Product-Details-thumb{
+    border: 3px solid rgb(228, 227, 227);
+    margin-right: 10px;
+    padding: 3px;
+    border-radius: 5px;
+}
+.Product-Details-thumb:hover {
+    border: 3px solid red;
+}
+
+.Product-Details-size{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.Product-Details-size-inside{
+    display: inline;
+    border: 3px solid rgb(228, 227, 227);
+    padding: 10px 15px;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+.Product-Details-size-inside:hover{
+    border: 3px solid red;
+}

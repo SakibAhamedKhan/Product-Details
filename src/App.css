@@ -4,7 +4,7 @@
   width: 95%;
   margin: 0 auto;
   grid-column-gap: 20px;
-  padding: 20px;
+  padding: 50px;
 }
 
 .product-part-2{
@@ -13,6 +13,7 @@
 @media screen and (max-width: 992px) {
   .container{
     grid-template-columns: 1fr;
+    padding: 50px 30px;
   }
   .product-part-1{
     justify-self: center;
