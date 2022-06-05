@@ -48,7 +48,7 @@ const ProductDetails = () => {
                         className={`Product-Details-thumb
                             ${(customSelect.color.id === p.id)? 'Product-Details-thumb-select': ''}
                         `}
-
+                        style={{cursor: 'pointer'}}
                         onClick={()=> {
                            customSelectDispatch({type:'CustomSelectColor', color: p});
                            hoverImgDispatch({type: 'ImageOnMouseHover', hoverImg: p.image})
@@ -67,6 +67,7 @@ const ProductDetails = () => {
                     {
                         product.variation.props[1].values.map( size => <div
                             key={size.id}
+                            style={{cursor: 'pointer'}}
                             className={`Product-Details-size-inside
                             ${(customSelect.size.id === size.id)? 'Product-Details-size-inside-select': ''}
                         `}

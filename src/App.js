@@ -70,7 +70,7 @@ function App() {
 
   // fetch data by get from API
   useEffect(() => {
-    fetch('/Product.json')
+    fetch('https://moveon-api-server.sbox.ali2bd.net/api/v1/customer/dummy-product')
       .then(res => res.json())
       .then(data => dispatch({ type: 'SUCCESS', data }))
   }, []);

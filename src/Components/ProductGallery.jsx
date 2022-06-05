@@ -27,7 +27,7 @@ const ProductGallery = () => {
                 {
                     product?.gallery.map((p, index) => <div
                         key={index}
-                        
+                        style={{cursor: 'pointer'}}
                     >
                         <img onMouseEnter={() => {
                             productByContext.hoverImgDispatch({type:'ImageOnMouseHover', hoverImg: p.url})
